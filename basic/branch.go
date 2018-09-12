@@ -3,9 +3,11 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"os"
 	"strconv"
+	"strings"
 )
 
 /* 2-4 2-5 语句*/
@@ -58,8 +60,11 @@ func printFile(filename string) {
 	if err != nil {
 		panic(err)
 	}
+	printContents(file)
+}
 
-	scanner := bufio.NewScanner(file)
+func printContents(reader io.Reader) {
+	scanner := bufio.NewScanner(reader)
 	for scanner.Scan() { // 相当于while
 		fmt.Println(scanner.Text())
 	}
@@ -78,5 +83,10 @@ func main() {
 
 	// output: 101 1101
 	fmt.Println(convertToBinary(5), convertToBinary(13))
-	printFile("abc.txt")
+	printFile("basic/abc.txt")
+
+	s := `ggg"k"gg
+			tv	
+			xq`
+	printContents(strings.NewReader(s))
 }
