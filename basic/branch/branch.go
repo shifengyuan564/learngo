@@ -83,7 +83,7 @@ func main() {
 
 	// output: 101 1101
 	fmt.Println(convertToBinary(5), convertToBinary(13))
-	printFile("basic/abc.txt")
+	printFile("basic/branch/abc.txt")
 
 	s := `ggg"k"gg
 			tv	

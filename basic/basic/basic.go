@@ -50,11 +50,12 @@ func euler() {
 
 func triangle() {
 	var a, b int = 5, 12
+	fmt.Println(calcTriangle(a, b))
+}
+func calcTriangle(a, b int) int {
 	var c int
-
-	/*强制类型转换*/
-	c = int(math.Sqrt(float64(a*a + b*b)))
-	fmt.Println(c)
+	c = int(math.Sqrt(float64(a*a + b*b))) /*强制类型转换*/
+	return c
 }
 
 func consts() {
