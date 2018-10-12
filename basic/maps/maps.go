@@ -34,7 +34,10 @@ func main() {
 	}
 
 	m2 := make(map[string]int) // m2 == empty map
-	var m3 map[string]int      // m3 == nil ， empty map == nil
+	m2["shi"] = 888
+	m2["shi"]++
+
+	var m3 map[string]int // m3 == nil ， empty map == nil
 
 	fmt.Println(m, m2, m3)
 

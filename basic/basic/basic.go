@@ -90,10 +90,10 @@ func enums() {
 		vb
 	)
 
-	// output: 1 1024 1048576 ....
+	// output: 1 1024 1048576 ....  (左移运算符)
 	const (
-		b = 1 << (10 * iota)
-		kb
+		b  = 1 << (10 * iota) // 1 * 2^0
+		kb                    // 1 * 2^10
 		mb
 		gb
 		tb

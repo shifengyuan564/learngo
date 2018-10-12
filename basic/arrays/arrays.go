@@ -52,6 +52,25 @@ func printArrayPtr(arr *[5]int) {
 	}
 }
 
+//  数组是值类型，赋值和函数传参操作都会复制整个数组数据。而原数组不会变化
+func arrayCopy() {
+	arrayA := [2]int{100, 200}
+	var arrayB [2]int
+
+	arrayB = arrayA
+	arrayB[1] = 300
+
+	fmt.Printf("ArrayCopy Test : arrayA : %p , %v\n", &arrayA, arrayA)
+	fmt.Printf("ArrayCopy Test : arrayB : %p , %v\n", &arrayB, arrayB)
+
+	testArrayCopy(arrayA)
+}
+
+func testArrayCopy(x [2]int) {
+	x[1] = 400
+	fmt.Printf("ArrayCopy Test : func Array : %p , %v\n", &x, x)
+}
+
 func main() {
 
 	//useRange()
@@ -63,6 +82,9 @@ func main() {
 		fmt.Println(i, v) // output: 2,4,6,8,10 （证明了数组参数是值传递，无法改变原值）
 	}
 
+	// Test Case 1:
 	printArrayPtr(&arr5) // 指针传递可以改变原数组的值
 
+	// Test Case 2: 打印出的三个内存地址都不同，验证了Go中数组赋值和函数传参都是值复制
+	arrayCopy()
 }
